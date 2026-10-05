@@ -1,0 +1,351 @@
+/*	ローカライズ	*/
+
+
+var _LANG = 'ja';
+
+//	メッセージ用
+var MSG_INCORRECT_TIME = '時間の前後が正しくないか、不正な数字が入力されています';
+var MSG_INCORRECT_SKYTIME = '1分以上を指定してください';
+
+var MSG_WELCOME = 'ようこそ！ソラのトケイ<sup>&reg;</sup>へ<br><br><hr><br>画面の<strong>右から左にスワイプ</strong>するか、<strong>本体のメニューボタン</strong>を押すと、設定画面が表示されます。<br><img src="images/ope_swipe.png">';
+var MSG_THANKS_SENDCLOCK = 'ご協力ありがとうございました。';
+var MSG_ERROR_SENDCLOCK = 'エラーが発生しました。<br>申し訳ありませんが、時間を空けて再度お願いいたします。';
+var MSG_RESET_LSP = 'リセットすると、ポイントがすべて消去されます。よろしいですか？';
+var MSG_CONFIRM_SENDINFO = '送信してもよろしいですか？';
+
+var MSG_BAD_RELATION_TIMES_TITLE = '矛盾が生じています';
+var MSG_BAD_RELATION_TIMES_DESC1 = '時間差の関係性を保ったまま昼時刻、終業時刻を自動変更しますか？';
+var MSG_BAD_RELATION_TIMES_DESC2 = '時間差の関係性を保ったまま起床時刻、終業時刻を自動変更しますか？';
+var MSG_BAD_RELATION_TIMES_DESC3 = '時間差の関係性を保ったまま起床時刻、昼時刻を自動変更しますか？';
+
+var MSG_NOSELECT_BRIDGE_TITLE = '';
+var MSG_NOSELECT_BRIDGE_DESC = '先にブリッジを選択してください';
+var MSG_NOTFOUND_BRIDGE_TITLE = '';
+var MSG_NOTFOUND_BRIDGE_DESC = 'ブリッジが見つかりません。電源やネットワークの確認をしてください。';
+var MSG_RETRY_BRIDGE_TITLE = '';
+var MSG_RETRY_BRIDGE_DESC = 'ブリッジのリンクボタンを押してからもう一度操作を行ってください。';
+
+var MSG_NOSELECT_LIGHT_TITLE = '';
+var MSG_NOSELECT_LIGHT_DESC = 'ライトが選択されていません';
+var MSG_NOTFOUND_LIGHT_TITLE = '';
+var MSG_NOTFOUND_LIGHT_DESC = 'ライトが登録されていないか、取得出来ませんでした。';
+
+var MSG_REQUEST_SELECT_BRIDGE_TITLE = '';
+var MSG_REQUEST_SELECT_BRIDGE_DESC = '接続するブリッジとライトを選択してください。';
+
+var MSG_CONFIRM_REG_LIFESTYLECYCLE_TITLE = '確認';
+var MSG_CONFIRM_REG_LIFESTYLECYCLE_DESC = 'hueへライフスタイルサイクルを登録します。以前の登録データは解除します。';
+var MSG_CONFIRM_RELEASE_LIFESTYLECYCLE_TITLE = '確認';
+var MSG_CONFIRM_RELEASE_LIFESTYLECYCLE_DESC = '登録されているhueへライフスタイルサイクルを解除します';
+var MSG_CONFIRM_HP_LINK_TITLE = '確認';
+var MSG_CONFIRM_HP_LINK_DESC = 'ブラウザを起動してホームページを表示しますか';
+
+var MSG_FINISH_REG_LIFESTYLECYCLE_TITLE = '';
+var MSG_FINISH_REG_LIFESTYLECYCLE_DESC = '登録しました';
+var MSG_FINISH_RELEASE_LIFESTYLECYCLE_TITLE = '';
+var MSG_FINISH_RELEASE_LIFESTYLECYCLE_DESC = '登録解除しました';
+
+//	PCC設定
+var MSG_FAIL_PCC_TITLE = '';
+var MSG_FAIL_PCC_DESC = 'Private Clock Cloudのコードが見つかりません。';
+var MSG_FAIL_PCC_INVALIDATE_TITLE = 'エラー';
+var MSG_FAIL_PCC_INVALIDATE_DESC = 'コードが不正です。<br>もう一度コードを確認してください';
+var MSG_FAIL_PCC_TIMEOUT_TITLE = 'エラー';
+var MSG_FAIL_PCC_TIMEOUT_DESC = 'サーバにつながりません。<br>回線などを確認してください';
+var MSG_FAIL_PCC_TIMEOUT_TITLE = 'エラー';
+var MSG_FAIL_PCC_TIMEOUT_DESC = '通信エラーが発生しました。<br>通信状況などを確認してください';
+var MSG_SUCCESS_PCC_PARAM_TITLE = '';
+var MSG_SUCCESS_PCC_PARAM_DESC = '連携しました。<br>連携を解除する場合は、連携停止ボタンを押してください';
+var MSG_WARN_PCC_RUNNING_TITLE = '';
+var MSG_WARN_PCC_RUNNING_DESC = 'Private Clock Cloud連携モード中です。<br>設定するにはpcc連携中止をしてください';
+
+
+var MSG_PROGRESS_REG_HUE = 'hueに登録中';
+var MSG_PROGRESS_RELEASE_HUE = '登録解除中';
+var MSG_PROGRESS_TURNON_HUE = '点灯中';
+var MSG_PROGRESS_TURNOFF_HUE = '消灯中';
+
+var MSG_FAIL_REG_EXLIGHT_TITLE = '';
+var MSG_FAIL_REG_EXLIGHT_DESC = '登録に失敗しました。';
+
+var STATUS_HUE_BRIDGE_SELECT = 'ブリッジを選択';
+var STATUS_HUE_ALL_LIGHTS = '全てのライト';
+
+var MSG_STARTUP = '『ソラのトケイ<sup>&reg;</sup> Lite』をダウンロードいただき、ありがとうございます。<br><br></hr>';
+	MSG_STARTUP += 'ソラのトケイ<sup>&reg;</sup>は、あなたの起床時と終業時をベースに独自の時計を作り、時刻を空の明るさで表示します。<br>';
+	MSG_STARTUP += 'これにより心理的に空の明るさに合わせた<strong>行動予測</strong>に変化が現れます。<br>';
+	MSG_STARTUP += '<strong>起床時</strong>、<strong>活動中</strong>、<strong>終業時</strong>、<strong>就寝時</strong>に数秒間 『ソラのトケイ<sup>&reg;</sup>』を見ることで始まります。<br>';
+	MSG_STARTUP += '1回見るごとにLSP（ライフスタイルポイント）が、1Pt増えていきます。<br>';
+	MSG_STARTUP += '数か月後には、生活リズム改善で新しいライフスタイルを手に入れられることを祈っております！<br>';
+	MSG_STARTUP += '<br>';
+	MSG_STARTUP += '各時刻を設定後、左上の<strong>ソラのトケイボタン</strong>が新しい時空への扉です。<br>';
+var NAME_LPS_AVRDAY = '日平均：';
+var NAME_LPS_TOTAL = '  ／累計：';
+
+var UI_TEXT_CANCEL = 'キャンセル';
+var UI_TEXT_DECISION = '決定';
+
+
+//	更新情報
+var INFO_UPDATING_TITLE = '更新情報';
+var INFO_UPDATING_TEXT = '＜1.3.1の変更点＞<br>・テキスト修正<br><hr>＜1.3.0の変更点＞<br>・Private Clock Cloud連携機能を追加<br>';
+
+
+
+//	HTMLタグ内を書き換える用
+var localeText = {
+	text_nav_title_lifestylecycle : { ja: 'ライフスタイル{br}サイクル',en: 'Life Style{br}Cycle'},
+	text_nav_title_skytimer : { ja: 'スカイタイマー',en: 'Sky Timer'},
+	text_nav_title_exlight : { ja: '外部照明',en: 'External{br}Lighting'},
+	text_nav_title_option : { ja: 'オプション',en: 'Option'},
+
+
+	text_header_title : { ja: 'ソラのトケイ Lite',en: 'Sora&apos;sTokei Lite'},
+	text_header_btn : { ja: '空に戻る',en: 'back to Sky'},
+	text_title_cycle : { ja: 'あなたの生活サイクル',en: 'Your Life Cycle'},
+	text_title_cycle_desc : { ja: 'あなたの現在の、または目標とする生活リズムの各時刻を、タップして設定してください。{br}あなただけの時刻（時計）が作られます。',en: 'Please enter your life time or target time.{br}You just time (clock) will be created.'},
+	text_title_cycle_t1 : { ja: '起床時刻',en: 'Wake-UpTime'},
+	text_title_cycle_t2 : { ja: '昼時刻',en: 'LunchRecessTime'},
+	text_title_cycle_t3 : { ja: '終業時刻',en: 'ClosingTime'},
+	text_title_lsp : { ja: 'ライフスタイルポイント（LSP）',en: 'LifeStylePoint(LSP)'},
+
+	text_title_pcc : { ja: 'Private Clock Cloud連携',en: 'Private clock cloud linkage'},
+	text_title_pcc_desc : { ja: 'Private Clock Cloud（pcc）で登録した時計で動作できます。',en: 'This function allows you to operate the clock registered in Private Clock Cloud (pcc).'},
+	text_link_pcc : { ja: 'Private Clock Cloudを開く',en: 'Open the Private Clock Cloud site'},
+	text_title_pcc_desc1 : { ja: '登録後にコードを下記に入力して連携できます。',en: 'After registering, you can link your code by entering it below.'},
+	text_title_pcc_message : { ja: '連携するコードの入力',en: 'Enter the linkage code'},
+	text_title_pcc_message_desc : { ja: 'pccページのリクエストURL末尾のコード23桁を入力してください',en: 'Please enter the 23-digit code at the end of the request URL for the pcc page.'},
+	text_btn_pcc_start : { ja: '連携開始',en: 'start linking'},
+	text_btn_pcc_stop : { ja: '連携停止',en: 'stop linking'},
+	text_pcc_indicator : { ja: ' 連携中',en: ' in pcc mode'},
+
+	text_title_skytimer : { ja: 'スカイタイマー',en: 'Sky Timer'},
+	text_title_skytimer_desc : { ja: '指定した時刻に音ではなく、空の明け暮れでお知らせするタイマーです。{br}指定時刻を明るさで認識するため、時間に遊びを持った様々なシチュエーションで楽しめます。ソラのトケイとは別モードで起動します。タイマー開始後は、机の上など、視野に入る場所に置いておいてください。{br}',en: 'It is a timer to be notification in transition of sky. It does not sound at the specified time.{br}In order to recognize a specified time in the brightness, you can enjoy in various situations with a play time. It will start in a different mode. Such as on the desk, please use in place entering the field of view.{br}'},
+	text_title_skytimer_t1 : { ja: 'セット時間',en: 'Set Time'},
+	text_title_skytimer_t1_sub : { ja: '（分単位）',en: '(unit: minutes)'},
+	text_title_skytimer_t2 : { ja: 'お知らせ空',en: 'Notify Sky'},
+	text_title_skytimer_t3 : { ja: '低消費電力',en: 'Low-power'},
+	text_title_skytimer_t3_desc : { ja: ' ',en: ' '},
+	text_select_skytimer_t1 : { ja: '日の出前後',en: 'Twilight to Sunrise'},
+	text_select_skytimer_t2 : { ja: '日の入り前後',en: 'Sunset to Twilight'},
+	text_select_skytimer_t3 : { ja: '真夜中　→　日の出',en: 'Mid-Night to Sunrise'},
+	text_select_skytimer_t4 : { ja: '真昼　→　日の入り',en: 'Hight-Noon to Sunset'},
+	text_select_skytimer_t5 : { ja: '日の出　→　日の入り',en: 'Sunrise to Sunset'},
+	text_select_skytimer_t6 : { ja: '日の入り　→　日の出',en: 'Sunset to Sunrise'},
+	text_title_skytimer_start : { ja: 'スカイタイマー起動',en: 'Sky Timer Start'},
+
+	text_select_cycle_t1 : { ja: '時間を指定する',en: 'Input Time'},
+	text_select_cycle_t2 : { ja: '現在時刻',en: 'Present Time'},
+	text_select_cycle_t3 : { ja: 'クリア',en: 'Clear'},
+
+	text_title_exlight : { ja: 'PHILIPS hue',en: 'PHILIPS hue'},
+	text_title_exlight_desc : { ja: 'ソラのトケイの空の明るさをPHILIPS hueに送信して、空の光を演出できます。',en: 'The sky in the brightness of the Sora&apos;sTokei and transmitted to the PHILIPS hue, you can produce a sky light. '},
+	text_title_exlight_bridge : { ja: '接続hueブリッジ',en: 'Connect hue bridge'},
+	text_title_exlight_bridge_ip : { ja: 'ブリッジを選択',en: 'Select hue bridge'},
+	text_title_exlight_lights : { ja: 'hueライト選択',en: 'Select hue lights'},
+	text_select_exlight_lights_t1 : { ja: '登録されているライト全て',en: 'All lights'},
+	text_select_exlight_lights_t2 : { ja: '個別に選択する',en: 'Choose lights'},
+	text_title_exlight_lights_status : { ja: '全てのライト',en: 'All lights'},
+
+	text_title_exlight_sw : { ja: '点灯操作',en: 'Lighting operation'},
+	text_title_exlight_sw_desc : { ja: '現在のソラのトケイの空に該当する色を点灯、又は消灯します。{br}ソラのトケイが夜の場合は点灯しません。',en: 'Lighting a color that corresponds to the Sora&apos;sTokei, or turn off.{br}It does not light up in the case of night.'},
+
+	text_title_exlight_schedule : { ja: 'ライフスタイルサイクルの登録',en: 'Registration of LifeStyleCycle'},
+	text_title_exlight_schedule_desc : { ja: 'ライフスタイルサイクルをhueに登録すると、ソラのトケイの設定に合わせた明るさを自動的に変化させることができます。{br}※登録後にライフスタイルサイクルを変更した場合、再度hueに登録し直してください。',en: 'When you register a lifestyle cycle to hue, it can automatically change the brightness to match the configuration of Sora&apos;sTokei. {br}※ If you change the lifestyle cycle after registration, please re-register again hue.'},
+
+	text_title_exlight_btn_reg : { ja: 'hueに登録する',en: 'Regist to hue'},
+	text_title_exlight_btn_release : { ja: 'hueから登録解除する',en: 'Release from hue'},
+	text_title_exlight_btn_turnon : { ja: 'hueを点灯する',en: 'Turn on hue'},
+	text_title_exlight_btn_turnoff : { ja: 'hueを消灯する',en: 'Turn off hue'},
+
+
+	text_title_lsp_reset : { ja: 'LSPをリセットする',en: 'reset LSP'},
+	text_title_digi : { ja: 'デジタル時刻',en: 'Show DigitalClock'},
+	text_title_digi_desc : { ja: '算出したの時刻の表示タイプを指定できます',en: 'You can specify the display type of the calculated time.'},
+	text_select_opt_digital_t1 : { ja: '液晶タイプ（大）',en: 'Large type (Toggle color)'},
+	text_select_opt_digital_t2 : { ja: '白（小）',en: 'small type (White color)'},
+	text_select_opt_digital_t3 : { ja: '表示しない',en: 'Hide'},
+
+	text_title_gps : { ja: '位置情報機能',en: 'Location(GPS)'},
+	text_title_gps_desc : { ja: '有効にすると、次の機能が働きます。',en: 'When enabled, the next function is activated.'},
+	text_title_gps_desc1 : { ja: '日の出／日の入り時刻を算出できます。',en: 'You can calculate the sunrise / sunset time.'},
+	text_title_gps_desc2 : { ja: '（無効の場合は日の出＝6時／日の入り＝18時で計算されます',en: '(In the case of disabled [Sunrise = 6:00 / sunset = 18:00] In It is calculated)'},
+	text_title_gps_desc3 : { ja: '※本体設定のGPSを有効にしておく必要があります。',en: '*You must enable the GPS of the setting.'},
+	text_title_gps_desc4 : { ja: '　',en: '　'},
+
+
+
+	text_title_whisper : { ja: 'ささやき',en: 'Whisper'},
+	text_title_whisper_desc : { ja: 'ソラのトケイに入力されたメッセージを表示します。{br}（文字数に制限があります）',en: 'It will display the input message to Sora&apos;sTokei.{br}(There is a number of characters to limit)'},
+	text_title_whisper_message : { ja: '「ささやき」メッセージ',en: 'Whisper message'},
+	text_title_whisper_message_desc : { ja: 'ソラのトケイ画面に入力されたメッセージを表示できます',en: 'Can display the message entered in the empty time screen.'},
+	text_title_whisper_mode : { ja: '「ささやき」表示コントロール',en: 'Whisper display control'},
+	text_select_opt_whisper_t1: { ja: '常に表示する',en: 'Always display'},
+	text_select_opt_whisper_t2:	{ ja: '始まりだけ表示する',en: 'Only beginning display'},
+	text_select_opt_whisper_t3:	{ ja: '表示しない',en: "Don't display"},
+
+	text_title_brightness_message:	{ ja: '画面の明るさ',en: "Brightness of the screen"},
+	text_title_brightness:	{ ja: '明るさを最大にする',en: "Maximize brightness"},
+
+	text_title_updateinfo:	{ ja: '更新情報',en: "updating information"},
+
+
+
+	text_title_ask : { ja: 'ご協力ください。',en: 'Please cooperate.'},
+	text_title_ask_desc : { ja: '皆さんの設定情報を収集、より良いアプリにしてまいります。	ご協力いただける場合は、下記より送信ボタンを押していただくと、現在の情報が当サーバに送信されます。何度でも行えます。{br}※個人情報は送信いたしません。{br}',en: "Collect configuration information of everyone, we will better app. If you wish to support, when you'll press the send button below, the current information is sent to our server. You can any number of times. {br} ※ personal information will not be sent. {br}"},
+	text_title_ask_desc_send : { ja: '送信する',en: 'Send'},
+	text_link_hp : { ja: 'ホームページ（使い方）へ',en: 'To HomePage(How to)'},
+	text_footer_patent : { ja: '特許出願中',en: 'PAT. P'},
+	text_footer_title : { ja: 'ソラのトケイ',en: 'Sora&apos;sTokei'},
+
+
+	text_navi_1_1 : { ja: '新しい世界へようこそ',en: 'Welcome to the new world'},
+	text_navi_1_2 : { ja: '次へ',en: 'Next'},
+	text_navi_1_3 : { ja: 'スキップ',en: 'Skip'},
+	text_navi_2_1 : { ja: 'ソラのトケイは、心理面に働きやすい空の明るさで時間を伝えてくれます。',en: 'Sora&apos;sTokei is by sky brightness that affect the psychological, will tell the time.'},
+	text_navi_2_2 : { ja: '左にスワイプすると設定画面が表示されます',en: 'The setting screen to swipe operation is displayed on the left.'},
+	text_navi_3_1 : { ja: 'スカイタイマーは、用途に合わせた空の変化を簡単に行えます。{br}横に回転してテレビに繋げば、大画面で利用できます。',en: 'Sky timer, do the sky change at the specified time. If connected to the TV to rotate to the side, you can use on the big screen.'},
+	text_navi_3_2 : { ja: '次へ',en: 'Next'},
+	text_navi_4_1 : { ja: '下のタブから、他の機能にアクセスできます',en: 'From the tabs below, you can access the other function'},
+	text_navi_4_2 : { ja: '「ライフスタイルサイクル」タブをタップしてください',en: 'Please tap the "lifestyle cycle" tab'},
+	text_navi_5_1 : { ja: 'ライフスタイルサイクルは、毎日の生活に合わせた空の時計が作れます。{br}３つの時刻を設定すると、ソラのトケイに反映されます。',en: 'Lifestyle cycle, you can create an empty watch tailored to everyday life. If you set the three of time, it will be reflected in the empty time.'},
+	text_navi_5_2 : { ja: '右にスワイプすると空に戻れます',en: 'You can return to the sky screen when you swipe to the right.'},
+	text_navi_6_1 : { ja: '設定されたライフスタイルサイクルの空を確認できます。',en: 'You can see the sky set lifestyle cycle.'},
+	text_navi_6_2 : { ja: '右にスワイプすると空マップが現れます。',en: 'Sky map appears when you swipe to the right.'},
+	text_navi_7_1 : { ja: '空マップは、設定されたライフスタイルサイクルの空を、24時間ダイヤルで表示します。',en: 'The Sky map displays the sky which I made in a lifestyle cycle with a dial for 24 hours.'},
+	text_navi_7_2 : { ja: '左にスワイプすると空マップを隠します',en: 'It hides an empty map when you swipe to the left'},
+	text_navi_8_1 : { ja: 'その他、スカイタイマーやささやき機能など、新しい世界を体感してください。',en: 'In addition, experience a new world of sky timer and whispering functions.'},
+	text_navi_8_2 : { ja: 'ソラのトケイを感じるコツ',en: 'Tips to feel the Sora&apos;sTokei'},
+	text_navi_8_3 : { ja: '見る際に、その空の時刻を意識する',en: 'Concentrate on the time of day in the sky when you look.'},
+	text_navi_8_4 : { ja: '1日に何度も見るようにしてください。続けることが大切です。',en: 'Try to watch it several times a day. It is important to continue.'},
+	text_navi_8_5 : { ja: '空の力で素晴らしいライフスタイルをお送りください',en: 'Please spend a splendid lifestyle by sky power.'},
+	text_navi_8_6 : { ja: 'はじめる',en: 'Begin'},
+	text_navi_8_7 : { ja: '次回から表示しない',en: 'Do not show next time'}
+
+
+};
+
+
+
+
+
+
+$(function($){
+
+});
+
+
+function setLocaliza(lang)
+{
+
+	_LANG = lang;
+
+
+	for( var key in localeText)
+	{
+//		document.getElementById(key).innerHTML = localeText[key][lang].replace(/\{br\}/g,'<br>');
+		$('#'+key).html( localeText[key][lang].replace(/\{br\}/g,'<br>'));
+	}
+
+	//	プレイスホルダーの入れ替え
+	document.getElementById('text_whisper').placeholder = (lang == 'en') ? 'My clock' : 'わたしの時刻';
+
+
+	if( lang == 'en')
+	{
+		MSG_INCORRECT_TIME = 'Incorrect time';
+		MSG_INCORRECT_SKYTIME = 'Please specify more than one minute';
+		MSG_WELCOME = 'Welcome! SoraJikoku<br><br><hr><br>You can swipe from the right of the screen to the left, Or press the menu button on the body, you will see the setting screen.<br><img src="images/ope_swipe.png">';
+		MSG_THANKS_SENDCLOCK = 'Thank you for your cooperation.';
+		MSG_ERROR_SENDCLOCK = 'An error occured. <br> Sorry, thank you again opened the time.';
+		MSG_RESET_LSP = 'When you reset, it will erase all points. Is it OK?';
+		MSG_CONFIRM_SENDINFO = 'Are you send to your info?';
+
+		MSG_BAD_RELATION_TIMES_TITLE = 'Inconsistency has occurred';
+		MSG_BAD_RELATION_TIMES_DESC1 = 'While keeping the time of the relationship, do you automatically change the LunchRecessTime and ClosingTime?';
+		MSG_BAD_RELATION_TIMES_DESC2 = 'While keeping the time of the relationship, do you automatically change the Wake-UpTime and ClosingTime?';
+		MSG_BAD_RELATION_TIMES_DESC3 = 'While keeping the time of the relationship, do you automatically change the Wake-UpTime and LunchRecessTime?';
+
+		MSG_NOSELECT_BRIDGE_TITLE = '';
+		MSG_NOSELECT_BRIDGE_DESC = 'Please select a hue bridge ahead';
+		MSG_NOTFOUND_BRIDGE_TITLE = '';
+		MSG_NOTFOUND_BRIDGE_DESC = 'Not found hue bridge. Please confirmation of the power supply or network.';
+		MSG_RETRY_BRIDGE_TITLE = '';
+		MSG_RETRY_BRIDGE_DESC = 'Please perform the operation again by pressing the link button of hue bridge.';
+
+		MSG_NOSELECT_LIGHT_TITLE = '';
+		MSG_NOSELECT_LIGHT_DESC = 'Not selected Lights';
+		MSG_NOTFOUND_LIGHT_TITLE = '';
+		MSG_NOTFOUND_LIGHT_DESC = 'Not found Lights';
+
+		MSG_REQUEST_SELECT_BRIDGE_TITLE = '';
+		MSG_REQUEST_SELECT_BRIDGE_DESC = 'Please select bridge, lights for connection';
+
+		MSG_CONFIRM_REG_LIFESTYLECYCLE_TITLE = 'Confirm';
+		MSG_CONFIRM_REG_LIFESTYLECYCLE_DESC = 'Register the LifeStyleCycle data to hue. Previous registration will be released from hue.';
+		MSG_CONFIRM_RELEASE_LIFESTYLECYCLE_TITLE = 'Confirm';
+		MSG_CONFIRM_RELEASE_LIFESTYLECYCLE_DESC = 'registration LifeStyleCycle data will be released from hue.';
+		MSG_CONFIRM_HP_LINK_TITLE = 'Confirm';
+		MSG_CONFIRM_HP_LINK_DESC = 'Would you like to view the HomePage to open the browser?';
+
+		MSG_FINISH_REG_LIFESTYLECYCLE_TITLE = '';
+		MSG_FINISH_REG_LIFESTYLECYCLE_DESC = 'Registered';
+		MSG_FINISH_RELEASE_LIFESTYLECYCLE_TITLE = '';
+		MSG_FINISH_RELEASE_LIFESTYLECYCLE_DESC = 'Released';
+
+		//	PCC
+		MSG_FAIL_PCC_TITLE = '';
+		MSG_FAIL_PCC_DESC = 'No matching code.';
+		MSG_FAIL_PCC_INVALIDATE_TITLE = 'Error';
+		MSG_FAIL_PCC_INVALIDATE_DESC = 'Invalid code. <br>Please check the code again.';
+		MSG_FAIL_PCC_TIMEOUT_TITLE = 'Error';
+		MSG_FAIL_PCC_TIMEOUT_DESC = 'Cannot connect server. <br>Please check if your line is online.';
+		MSG_FAIL_PCC_TIMEOUT_TITLE = 'Error';
+		MSG_FAIL_PCC_TIMEOUT_DESC = 'A communication error occurred. <br>Please check the communication status.';
+		MSG_SUCCESS_PCC_PARAM_TITLE = '';
+		MSG_SUCCESS_PCC_PARAM_DESC = 'Linkage has been established.<br>To cancel the linkage, please press the stop linkage button';
+		MSG_WARN_PCC_RUNNING_TITLE = '';
+		MSG_WARN_PCC_RUNNING_DESC = 'Private Clock Cloud is being linked. <br>Please stop linkage if you want to set up.';
+
+		MSG_PROGRESS_REG_HUE = 'Registration';
+		MSG_PROGRESS_RELEASE_HUE = 'Release';
+		MSG_PROGRESS_TURNON_HUE = 'Turn on';
+		MSG_PROGRESS_TURNOFF_HUE = 'Turn off';
+
+		MSG_FAIL_REG_EXLIGHT_TITLE = '';
+		MSG_FAIL_REG_EXLIGHT_DESC = 'Fail registration';
+
+		STATUS_HUE_BRIDGE_SELECT = 'Select hue bridge';
+		STATUS_HUE_ALL_LIGHTS = 'ALl lights';
+
+
+		MSG_STARTUP = 'Thank you for download the SoraJikoku Lite<br><br></hr>';
+		MSG_STARTUP += 'SoraJikou can create your own clock closing time to the base and when you wake-up, to display the time in the sky brightness.<br>';
+		MSG_STARTUP += 'In your psychology, will occur the combined behavior prediction in the sky brightness by this.<br>';
+		MSG_STARTUP += 'Upon waking, in action, at the end of the day, you can start by looking at the SoraJikoku for a few seconds, such as at bedtime.<br>';
+		MSG_STARTUP += 'LSP(Life Style Point) Each time you see this, increase 1Pt.<br>';
+		MSG_STARTUP += 'We hope after a few months, you can be get new life style and the rhythm of life improvement!<br>';
+		MSG_STARTUP += '<br>';
+		MSG_STARTUP += 'After setting each time, is the door of the SoraJikoku button in the upper left is the new space-time.<br>';
+
+		NAME_LPS_AVRDAY = 'daily mean:';
+		NAME_LPS_TOTAL = '  /total:';
+
+		UI_TEXT_CANCEL = 'CANCEL';
+		UI_TEXT_DECISION = 'OK';
+
+		INFO_UPDATING_TITLE = 'Updating Information';
+		INFO_UPDATING_TEXT = '＜1.3.1 Changes＞<br>-Text correction.<br><hr>＜1.3.0 Changes＞<br>-Added function to link with private clock cloud.<br>';
+
+	}
+
+	setLocalizaEach(lang);
+
+}
+
+function setLocalizaEach(lang)
+{
+	//	各OSごとの処理
+}
+
+

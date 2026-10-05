@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ja" manifest="sorajikoku.manifest">
+<head>  
+<meta charset="utf-8">
+<title>ソラのトケイ Lite</title>
+
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-store">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="0">
+
+<meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="apple-touch-icon" href="icon.png" />
+
+<link href="css/mobiscroll.custom-2.17.2.min.css" rel="stylesheet" type="text/css" />
+<link href="css/common.min.css" rel="stylesheet" type="text/css" media="screen, projection" />
+<link href="css/navi.min.css" rel="stylesheet" type="text/css" media="screen, projection" />
+
+<link href="css/digifont.css" rel="stylesheet" type="text/css" media="screen, projection" />
+
+
+<link href="css/material.css" rel="stylesheet" type="text/css" media="screen, projection" />
+<link href="css/material-icons.css" rel="stylesheet" type="text/css" media="screen, projection" />
+
+
+<script src="js/jquery-2.2.2.min.js"></script>
+<script src="js/cavy.js"></script>
+<script src="js/mobiscroll.custom-2.17.2.min.js" type="text/javascript"></script>
+
+
+<script type="text/javascript" src="js/material.min.js"></script>
+
+<script src="js/cclib.min.js"></script>
+<script src="js/suntime.min.js"></script>
+
+<script src="js/httplib.min.js"></script>
+<script src="js/hue_schedules.min.js"></script>
+<script src="js/gradientcolor.min.js"></script>
+
+
+<script src="js/swipe-listener.min.js"></script>
+
+
+
+</head>
+<body>
+<div id="loading" class="mbsc-ic mbsc-ic-material-loop" style="visibility:hidden;"></div>
+<div id="black_screen"></div>
+
+
+
+<div id="skymap">
+	<div id="skymap_canvas"></div>
+
+	</div>
+</div>
+<div id="sky"></div>
+
+<div id="setting">
+
+	<div id="st_header" class=" mbsc-mobiscroll-dark mbsc-ms-c" style="width:100%;">
+		<span class="title"><span id="text_header_title">ソラのトケイ Lite</span></span>
+
+		<span class="lsp_style" id="text_title_lsp">ライフスタイルポイント（LSP）</span>
+		<span class="lsp_style" id="st_lsp_value" style="text-align:center;"></span>
+
+
+	<style>
+
+
+
+
+
+
+</style>
+<!--		<span class="btn_sky"><div class="" onclick="set2sky()">←<span id="text_header_btn">空</span></div></span>-->
+		<span class="btn_sky"><div class="" onclick="set2sky()"><span id="text_header_btn">空に戻る</span></div></span>
+	</div>
+
+	<div id="menutab">
+		<li data-id="1" data-tab="tab-lsc" data-icon="fa-pie-chart" data-selected="true"><span id="text_nav_title_lifestylecycle" class="navi_title">ライフスタイル<br>サイクル</span></li>
+		<li data-id="2" data-tab="tab-skytimer" data-icon="alarm2"><span id="text_nav_title_skytimer" class="navi_title">スカイタイマー</span></li>
+<!--		<li data-id="3" data-tab="tab-exlight" data-icon="line-bulb"><span id="text_nav_title_exlight" class="navi_title">外部照明</span></li>-->
+		<li data-id="4" data-tab="tab-options" data-icon="line-params"><span id="text_nav_title_option" class="navi_title">オプション</span></li>
+	</div>
+
+	<div id="scrollarea">
+
+        <div id="tab-skytimer" class="menutab-list menutab-list-sel">
+
+			<ul id="list-skytimer" class="scroll-list" mbsc-enhance>
+				<li class="lv_desc" style="background-color:#f8f8f8;">
+					<div id="text_title_skytimer" class="title">スカイタイマー</div>
+					<div class="desc">
+						<span id="text_title_skytimer_desc">指定した時刻に音ではなく、空の変化でお知らせするタイマーです。<br>
+							指定時刻を明るさで認識するため、時間に遊びを持った様々なシチュエーションで楽しめます。ソラのトケイとは別モードで起動します。
+							タイマー開始後は、机の上など、視野に入る場所に置いておいてください。<br>
+						</span>
+					</div>
+				</li>
+				<li data-type="st_alarm" data-icon="stream-clock-time"><h4 id="text_title_skytimer_t1">セット時間</h4><p id="text_title_skytimer_t1_sub">（分単位）</p><span id="t_alarm" class="lv_right txtime">00:01</span></li>
+				<li data-icon="material-brightness-4"><h4 id="text_title_skytimer_t2">お知らせする空</h4><div><select id="t_skytimer" name="skytimer"><option value="1" id="text_select_skytimer_t1" selected>日の出前後</option><option value="2" id="text_select_skytimer_t2">日の入り前後</option><option value="3" id="text_select_skytimer_t3">真夜中　→　日の出</option><option value="4" id="text_select_skytimer_t4">真昼　→　日の入り</option><option value="5" id="text_select_skytimer_t5">日の出　→　日の入り</option><option value="6" id="text_select_skytimer_t6">日の入り　→　日の出</option></select></div></li>
+				<li data-type="st_lowpow" data-icon="ion-leaf"><h4 id="text_title_skytimer_t3">低消費電力</h4><p id="text_title_skytimer_t3_desc">　</p><span id="opt_skytimer_lowpow" class="lv_right txtcheck"></span></li>
+				<li>
+					<div style="text-align:center;" mbsc-enhance>
+						<button style="width:90%;" onclick="startSkyTimer()" id="text_title_skytimer_start">スカイタイマー起動</button>
+					</div>
+				</li>
+            </ul>
+        </div>
+
+		<div id="tab-lsc" class="menutab-list">
+
+			<ul id="list-lsc" class="scroll-list" mbsc-enhance>
+				<li class="lv_desc" style="background-color:#f8f8f8;">
+					<div id="text_title_cycle" class="title">あなたの生活サイクル</div>
+					<div id="text_title_cycle_desc" class="desc">
+						あなたの現在の、または目標とする生活リズムの各時刻を、タップして設定してください。<br>
+						あなただけの時刻（時計）が作られます。
+					</div>
+				</li>
+				<li data-type="wakeup" data-icon="meteo-weather"><h4 id="text_title_cycle_t1">起床時刻</h4><p>　</p><span id="t_wakeup" class="lv_right txtime">00:00</span></li>
+				<li data-type="lunch" data-icon="meteo-sun"><h4 id="text_title_cycle_t2">昼時刻</h4><p>　</p><span id="t_lunch" class="lv_right txtime ">00:00</span></li>
+				<li data-type="endwork" data-icon="meteo-weather2"><h4 id="text_title_cycle_t3">終業時刻</h4><p>　</p><span id="t_endwork" class="lv_right txtime">00:00</span></li>
+
+				<li class="lv_desc" style="background-color:#f8f8f8;">
+					<div id="text_title_pcc" class="title">Private Clock Cloud連携</div>
+					<div class="desc">
+						<div id="text_title_pcc_desc">Private Clock Cloud（pcc）で登録した時計で動作できます。</div>
+						<div style="margin:10px 0"><button style="width:90%;text-transform:none;" onclick="confirmGoHomepage('solution/pcc.html')" id="text_link_pcc">Private Clock Cloudを開く</button></div>
+						<div id="text_title_pcc_desc1">登録後にコードを下記に入力して連携できます。<br></div>
+					</div>
+				</li>
+				<li data-icon="material-settings-remote" class="mbsc-lv-item-ic-right">
+					<h4 id="text_title_pcc_message" style="display:inline-block;">連携するコードの入力</h4><span id="text_pcc_indicator" class="mbsc-ic mbsc-ic-material-toys" style="color:#3fff30; font-size:16px; position:absolute; right:24px; background-color: #263238;padding:4px 16px; border-radius:6px;" hidden="hidden"> 連携中</span>
+					<p id="text_title_pcc_message_desc" class="mbsc-lv-txt" style="line-height:1rem;">pccページのリクエストURL末尾のコード23桁を入力してください</p>
+					<div style="">
+						<input id="text_pcc_code" name="text_pcc_code" type="text" placeholder="23桁のコード" minlength="26" style="text-align:center;">
+					</div>
+					<div style="text-align:right;">
+						<button style="text-transform:none;" onclick="getPccParam()" id="text_btn_pcc_start">連携開始</button>
+						<button style="text-transform:none;" onclick="pccControleStop()" id="text_btn_pcc_stop" hidden="hidden">連携停止</button>
+					</div>
+				</li>
+
+
+				<li class="lv_desc" style="background-color:#f8f8f8;">
+					<div id="text_title_gps" class="title">位置情報機能</div>
+					<div class="desc">
+						<div id="text_title_gps_desc">有効にすると、次の機能が働きます。</div>
+						<div id="text_title_gps_desc1">日の出／日の入り時刻を算出できます。</div>
+						<div id="text_title_gps_desc2">（無効の場合は日の出＝6時／日の入り＝18時で計算されます</div>
+						<div id="text_title_gps_desc3">※本体設定のGPSを有効にしておく必要があります。</div>
+					</div>
+				</li>
+				<li data-type="use_location" data-icon="stream-map-pin"><h4>GPS</h4><p id="text_title_gps_desc4">　</p><span id="opt_gps" class="lv_right txtcheck"></span></li>
+
+			</ul>
+		</div>
+
+
+        <div id="tab-exlight" class="menutab-list">
+
+			<ul id="list-exlight" class="scroll-list" mbsc-enhance>
+				<li class="lv_desc" style="background-color:#f8f8f8;">
+					<div id="text_title_exlight" class="title">PHILIPS hue</div>
+					<div id="text_title_exlight_desc" class="desc">
+						ソラのトケイの空の明るさをPHILIPS hueに送信して、空の光を演出できます。<br>
+						ライフスタイルサイクルをhueに登録すると、ソラのトケイの設定に合わせた明るさを自動的に変化させることができます。<br>
+						※登録後にライフスタイルサイクルを変更した場合、再度hueに登録し直してください。
+					</div>
+				</li>
+<!--
+				<li data-type="select_hue_bridge" data-icon="ion-wifi" data-icon-align="left"><h4 id="text_title_exlight_bridge">接続hueブリッジ</h4><br><div id="hue_bridge_ip" class="md-app-desc" style="text-align:center;">　[ <span id="text_title_exlight_bridge_ip">ブリッジを選択</span> ]</div></li>
+-->
+				<li data-icon="ion-wifi" data-icon-align="left">
+					<h4 id="text_title_exlight_bridge">接続hueブリッジ</h4>
+						<p id="text_title_hue_bridge_ip_desc" class="mbsc-lv-txt" style="line-height:1rem;">ブリッジ検索APIが廃止されたため、IPアドレスを直接入力してください。<br>Hue公式アプリの設定＞マイブリッジ＞ネットワーク設定＞DHCPをOFFにするとIPアドレスが表示されます。</p>
+					<div class="md-app-desc" style="text-align:center;">
+						<input id="hue_bridge_ip" name="hue_bridge_ip" type="text" placeholder="ブリッジのipアドレス" minlength="39" style="text-align:center;">
+					</div>
+				</li>
+				<li data-type="select_hue_lights" data-icon="foundation-lightbulb" data-icon-align="left"><h4 id="text_title_exlight_lights">hueライト選択</h4><br><div id="hue_lights_list" class="md-app-desc" style="text-align:center;">　[　<span id="text_title_exlight_lights_status">全てのライト</span> ]</div></li>
+
+				<li class="lv_desc" style="background-color:#f8f8f8;">
+					<div id="text_title_exlight_sw" class="title">点灯操作</div>
+					<div id="text_title_exlight_sw_desc" class="desc">
+						現在のソラのトケイの空に該当する色を点灯、又は消灯します。<br>
+						ソラのトケイが夜の場合は点灯しません。
+					</div>
+				</li>
+				<li>
+					<div style="text-align:center;" mbsc-enhance>
+						<button style="width:90%;" onclick="turnOnHueLightAll();return false;" id="text_title_exlight_btn_turnon" disabled>hueを点灯する</button>
+						<button style="width:90%;" onclick="turnOffHueLightAll();return false;" id="text_title_exlight_btn_turnoff" disabled>hueを消灯する</button>
+					</div>
+				</li>
+				<li class="lv_desc" style="background-color:#f8f8f8;">
+					<div id="text_title_exlight_schedule" class="title">ライフスタイルサイクルの登録</div>
+					<div id="text_title_exlight_schedule_desc" class="desc">
+						ソラのトケイの空の明るさをPHILIPS hueに送信して、空の光を演出できます。<br>
+						ライフスタイルサイクルをhueに登録すると、ソラのトケイの設定に合わせた明るさを自動的に変化させることができます。<br>
+						※登録後にライフスタイルサイクルを変更した場合、再度hueに登録し直してください。
+					</div>
+				</li>
+				<li>
+					<div style="text-align:center;" mbsc-enhance>
+						<button style="width:90%;" onclick="startHueAllSchedules();return false;" id="text_title_exlight_btn_reg" disabled>hueに登録する</button>
+						<button style="width:90%;" onclick="clearHueSchedulesAll();return false;" id="text_title_exlight_btn_release" disabled>hueから登録解除する</button>
+					</div>
+				</li>
+            </ul>
+        </div>
+
+
+        <div id="tab-options" class="menutab-list">
+
+			<ul id="list-options" class="scroll-list" mbsc-enhance>
+
+<!--
+				<li data-type="show_digital" data-icon="material-remove-from-queue"><h4 id="text_title_digi">デジタル時刻</h4><p id="text_title_digi_desc">算出したの時刻をデジタル表示します</p><span id="opt_digital" class="lv_right txtcheck"></span></li>
+-->
+				<li data-icon="material-remove-from-queue" class="mbsc-lv-item-ic-right"><h4 id="text_title_digi">デジタル時刻</h4><p id="text_title_digi_desc">算出したの時刻の表示タイプを指定できます</p>
+					<div><select id="opt_digital" name="opt_digital"><option value="1" id="text_select_opt_digital_t1"> 液晶タイプ（大）</option><option value="2" id="text_select_opt_digital_t2"> 白（小）</option><option value="0" id="text_select_opt_digital_t3"> 表示しない</option></select></div>
+				</li>
+				<li data-icon="stream-bubble-comment-talk" class="mbsc-lv-item-ic-right"><h4 id="text_title_whisper_message">「ささやき」メッセージ</h4><p id="text_title_whisper_message_desc" class="mbsc-lv-txt" style="line-height:1rem;">ソラのトケイ画面に入力されたメッセージを表示できます</p><div><input id="text_whisper" name="text_whisper" type="text" placeholder="わたしの時刻" minlength="26" style="text-align:center;"></div></li>
+				<li data-icon="eye"><h4 id="text_title_whisper_mode">「ささやき」表示コントロール</h4><p id="text_title_whisper_message_desc" class="mbsc-lv-txt" style="line-height:1rem;">「ささやき」の表示方法を設定できます。</p><div><select id="opt_whisper" name="opt_whisper"><option value="1" id="text_select_opt_whisper_t1"> 常に表示する</option><option value="2" id="text_select_opt_whisper_t2"> 見始めだけ表示する</option><option value="3" id="text_select_opt_whisper_t3"> 表示しない</option></select></div></li>
+
+				<li data-type="set_brightness" data-icon="brightness-contrast" class="mbsc-lv-item-ic-right">
+					<h4 id="text_title_brightness_message" class="mbsc-lv-txt" style="margin-right:1rem;">画面の明るさ</h4><p id="text_title_brightness_message_desc" class="mbsc-lv-txt" style="line-height:1rem;">有効にすると、使用時に画面の明るさを最大に変更します。</p>
+					<h4 id="text_title_brightness" class="mbsc-lv-txt">明るさを最大にする</h4><span id="text_title_brightness_desc" class="mbsc-desc"> </span>
+					<span id="opt_brightness" class="lv_right txtcheck"></span>
+				</li>
+
+
+
+
+
+
+				<li>
+					<div style="text-align:center;" mbsc-enhance>
+						<button style="width:90%;" onclick="confirmGoHomepage()" id="text_link_hp">ホームページ／使い方</button>
+					</div>
+				</li>
+				<li>
+					<div style="text-align:center;" mbsc-enhance>
+						<button style="width:90%;" onclick="confirmResetLSP()" id="text_title_lsp_reset">LSPをリセットする</button>
+					</div>
+				</li>
+
+				<li class="lv_desc" style="background-color:#f8f8f8;">
+					<div id="text_title_ask" class="title">ご協力ください。</div>
+					<div id="text_title_ask_desc" class="desc">
+						皆さんの設定情報を収集し、より良いアプリにしてまいります。
+						ご協力いただける場合は、下記より送信ボタンを押していただくと、現在の情報が当サーバに送信されます。何度でも行えます。<br>
+						※個人情報は送信いたしません。<br>
+					</div>
+				</li>
+				<li>
+					<div style="text-align:center;" mbsc-enhance>
+						<button style="width:90%;" onclick="confirmSendClockInfo()" id="text_title_ask_desc_send">送信する</button>
+					</div>
+				</li>
+
+				<li class="lv_desc" style="background-color:#f8f8f8;text-align:center;">
+					<div id="text_footer_patent" class="title">特許登録済</div><div><span id="text_footer_title">ソラのトケイ</span><span class="registed">&reg;</span> Lite <span id="version"></span>（<a id="text_title_updateinfo" href="#" onclick="showUpdateInfo();">更新情報</a>）</div>
+					<div class="copyright">convex corporation ,ltd.</div>
+				</li>
+
+			</ul>
+        </div>
+
+	</div>
+
+</div>
+
+
+<div id="first_navigation" style="display: none;">
+
+
+	<div navipage="1" class="first_navigation_page" style="display: none;">
+		<div class="first_navigation_bg" style="height:100%; background-color:#17acff; opacity:1;"></div>
+
+		<div class="first_navigation_contents">
+			<div layout="desc">
+				<div  id="text_navi_1_1">新しい世界へようこそ</div>
+				<div layout="img"><img src="./images/navi/cycle.png" style="opacity:0.2;"></div>
+			</div>
+			<div layout="operation" id="text_navi_1_2" style="background-color:rgba(255,255,255,0);" mbsc-enhance><button>次へ</button></div>
+			<div layout="progress" style="font-size: 10px;">●　○　○　○　○　○</div>
+			<div layout="skip" id="text_navi_1_3">スキップ</div>
+		</div>
+	</div>
+
+	<div navipage="2" class="first_navigation_page" style="display: none;">
+		<div class="first_navigation_bg" style="height:100%; background-color:black; opacity:0.5;"></div>
+
+		<div class="first_navigation_contents">
+			<div layout="desc">
+				<div id="text_navi_2_1" class="desc_text">ソラのトケイは、心理面に働きやすい空の明るさで時間を伝えてくれます。</div>
+				<div layout="img"><img src="./images/navi/swipe_R2L.png" style="opacity:0.5;"></div>
+			</div>
+			<div layout="operation"><div id="text_navi_2_2" class="operation_text">左にスワイプすると設定画面が表示されます</div></div>
+			<div layout="progress" style="font-size: 10px;">○　●　○　○　○　○</div>
+		</div>
+	</div>
+
+	<div navipage="3" class="first_navigation_page" style="display: none;">
+		<div class="first_navigation_bg" style="height:100%; background-color:black; opacity:0.5;"></div>
+
+		<div class="first_navigation_contents">
+			<div layout="desc">
+				<div id="text_navi_5_1" class="desc_text">
+					ライフスタイルサイクルは、毎日の生活に合わせた空の時計が作れます。<br>
+					３つの時刻を設定すると、ソラのトケイに反映されます。
+				</div>
+				<div layout="img"><img src="./images/navi/swipe_L2R.png" style="opacity:0.5;"></div>
+			</div>
+			<div layout="operation"><div id="text_navi_5_2" class="operation_text">右にスワイプするとソラのトケイ画面に戻れます</div></div>
+			<div layout="progress" style="font-size: 10px;">○　○　●　○　○　○</div>
+		</div>
+	</div>
+
+	<div navipage="4" class="first_navigation_page" style="display: none;">
+		<div class="first_navigation_bg" style="height:100%; background-color:black; opacity:0.5;"></div>
+
+		<div class="first_navigation_contents">
+			<div layout="desc">
+				<div id="text_navi_6_1" class="desc_text">
+					設定されたライフスタイルサイクルの空を確認できます。
+				</div>
+				<div layout="img"><img src="./images/navi/swipe_L2R.png" style="opacity:0.5;"></div>
+			</div>
+			<div layout="operation"><div id="text_navi_6_2" class="operation_text">右にスワイプすると空マップが現れます。</div></div>
+			<div layout="progress" style="font-size: 10px;">○　○　○　●　○　○</div>
+		</div>
+	</div>
+
+	<div navipage="5" class="first_navigation_page" style="display: none;">
+		<div class="first_navigation_bg" style="height:100%; background-color:black; opacity:0.5;"></div>
+
+		<div class="first_navigation_contents">
+			<div layout="desc">
+				<div id="text_navi_7_1" class="desc_text">
+					空マップは、設定されたライフスタイルサイクルの空を、24時間ダイヤルで表示します。
+				</div>
+				<div layout="img"><img src="./images/navi/swipe_R2L.png" style="opacity:0.5;"></div>
+			</div>
+			<div layout="operation"><div id="text_navi_7_2" class="operation_text">左にスワイプすると空マップを隠します</div></div>
+			<div layout="progress" style="font-size: 10px;">○　○　○　○　●　○</div>
+		</div>
+	</div>
+
+	<div navipage="6" class="first_navigation_page" style="display: none;">
+		<div class="first_navigation_bg" style="height:100%; background-color:#17acff; opacity:1;"></div>
+
+		<div class="first_navigation_contents">
+			<div layout="desc">
+				<div id="text_navi_8_1" class="desc_text">
+					その他、スカイタイマーやささやき機能など、新しい世界を体感してください。
+				</div><br>
+				<dl class="desc_text">
+					<dt style="margin-top: 1em;"><span class="mbsc-ic mbsc-ic-line-study">　</span><span id="text_navi_8_2">ソラのトケイを感じるコツ</span></dt>
+					<dd id="text_navi_8_3">見る際に、その空の時刻を意識する</dd>
+					<dd id="text_navi_8_4">1日に何度も見るようにしてください。続けることが大切です。</dd>
+				</dl>
+				<div><div id="text_navi_8_5" class="desc_text">空の力で素晴らしいライフスタイルをお送りください</div></div>
+			</div>
+			<div layout="operation" id="text_navi_8_6" style="background-color: rgba(255,255,255,0);" mbsc-enhance><button>はじめる</button></div>
+			<div layout="progress" style="font-size: 10px;">○　○　○　○　○　●</div>
+			<div layout="check" mbsc-enhance>
+<!--
+<input id="navi_next_hide" name="navi_next_hide" type="checkbox">　<span id="text_navi_8_7">次回から表示しない</span>
+-->
+				<label><span id="text_navi_8_7">次回から表示しない</span><input id="navi_next_hide" type="checkbox" /></label>
+
+			</div>
+		</div>
+	</div>
+
+<div></div>
+
+
+</div>
+
+
+<!--	ダイアログ関連	-->
+<!--
+<div style="display: none;">
+	<select name="hue_bridge" id="hue_bridge">
+	</select>   
+</div>
+-->
+<div style="display: none;">
+	<select name="hue_lights_each" id="hue_lights_each">
+		<option value="0" id="text_select_exlight_lights_t1">登録されているライト全て</option>
+		<option value="1" id="text_select_exlight_lights_t2">個別に選択する</option>
+	</select>   
+</div>
+<div style="display: none;">
+	<select name="hue_lights" id="hue_lights" multiple>
+	</select>   
+</div>
+
+<div style="display: none;">
+	<select name="cycle_time_select" id="cycle_time_select" target_time="">
+		<option value="0" id="text_select_cycle_t1">時間を指定する</option>
+		<option value="1" id="text_select_cycle_t2">現在時刻</option>
+		<option value="2" id="text_select_cycle_t3">クリア</option>
+	</select>   
+</div>
+
+<div id="dlg" style="display: none;">
+	<div id="dlg_title"></div>
+	<div id="dlg_msg"></div>
+</div>
+
+<div id="dlg_progress" style="display: none;">
+	<div id="dlg_progress_title"></div>
+	<div mbsc-enhance><progress id="bar_progress" value="0" max="100"></progress></div>
+</div>
+
+
+
+
+<script src="js/localize.min.js"></script>
+<!--<script src="js/localize_ios.min.js"></script>-->
+<script src="js/localize_android.min.js"></script>
+
+
+<div id="area_whisper"><p id="sky_whisper" class="whisper_text"></p></div>
+
+<div id="area_digiclock"><span id="digital_text" class="digi-num clock"></span></div>
+
+<!--
+<div style="position: absolute; right:2rem; top:2rem; z-index:10000; color:white;">
+	<button id="grs_id_sysmenu" class="mdl-button mdl-js-button mdl-button--icon" data-upgraded=",MaterialButton" onclick=""><i class="material-icons">more_vert</i></button>
+</div>
+-->
+
+
+<script>
+
+	if( document.location.search.substr(1,2) == 'en')
+	{
+		setLocaliza('en');
+	}
+
+</script>
+
+<script src="js/sorajikoku.min.js"></script>
+<!--<script src="js/sorajikoku_ios.min.js"></script>-->
+<script src="js/sorajikoku_android.min.js"></script>
+
+<script src="js/skymap.min.js"></script>
+<script src="js/navi.min.js"></script>
+
+
+
+
+</body>
+</html>

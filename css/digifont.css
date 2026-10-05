@@ -1,0 +1,17 @@
+@font-face {
+	font-family: 'digifont';
+	src: url(../fonts/diginum.ttf);
+}
+
+.digi-num {
+	font-family: 'digifont';
+}
+
+.digi-num.clock {
+	color: white;
+	font-size: 8vmin;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+
+

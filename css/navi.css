@@ -1,0 +1,100 @@
+
+
+#first_navigation {
+	position: absolute;
+	display: block;
+	top: 0px;
+	left: 0px;
+	bottom: 0px;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+
+	z-index: 600;
+	text-align: center;
+
+	line-height: 1.2em;
+}
+
+.first_navigation_page {
+	position: absolute;
+	display: block;
+	top: 0px;
+	left: 0px;
+	bottom: 0px;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+
+	z-index: 601;
+	text-align: center;
+	color: white;
+
+	font-family: serif;
+	font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Verdana, sans-serif;
+	font-size: 1.0rem;
+}
+
+.first_navigation_bg {
+	position: absolute;
+	display: block;
+	z-index: 602;
+	width: 100%;
+}
+.first_navigation_contents {
+	position: absolute;
+	display: block;
+	z-index: 603;
+	width: 100%;
+	height:100%;
+	margin: 0;
+	padding: 0;
+}
+
+.first_navigation_contents img {
+	user-select:none;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-khtml-user-select:none;
+	-webkit-user-drag:none;
+	-khtml-user-drag:none;
+}
+.first_navigation_contents dt {
+	font-weight: 500;
+	height: 2em;
+}
+.first_navigation_contents dd {
+	text-indent: 1.2em;
+	height: 2em;
+}
+.first_navigation_contents dd:before {
+	content: '・';
+}
+.first_navigation_contents div {
+	line-height: 2em;
+}
+
+.first_navigation_contents .desc_text {
+	display: inline-block;
+	text-align: left;
+	line-height: 1.4em;
+	margin: 0 30px;
+}
+.first_navigation_contents .operation_text {
+	display: inline-block;
+	text-align: left;
+	line-height: 1.2em;
+	margin: 0 30px;
+}
+
+
+
+.attention_blink {
+  animation: attentionBlinkAnime 1s infinite alternate;
+}
+@keyframes attentionBlinkAnime{
+   0% { opacity: 0; }
+ 100% { opacity: 1; }
+}
+
+
